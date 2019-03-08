@@ -27,16 +27,20 @@ function renderButton(x) {
 //ajax request & print gifs to document
 $(document.body).on("click", ".btn", function() {
   var searchTerm = $(this).attr("data-topic");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=nrylwrZG52SmIojDMTKvClp4ZWGL6osm&q=" + searchTerm + "&limit=10&offset=0&rating=G&lang=en"
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=nrylwrZG52SmIojDMTKvClp4ZWGL6osm&q=" + searchTerm + "&limit=10&offset=0&rating=R&lang=en"
   $.ajax({
     url: queryURL,
     method: "GET"
   })
     .then(function(response) {
+      console.log(response);
+
       var gifs = ''
       for (x=0; x<response.data.length; x++) {
         var gifResponse = response.data[x].images.original.url;
-        gifs += '<img src="' + gifResponse + '">';
+        var rating = response.data[x].rating;
+        gifs += '<p>' + rating + '</p><img src="' + gifResponse + '">';
+        
       }
       $("#gifs").html(gifs);
     });
