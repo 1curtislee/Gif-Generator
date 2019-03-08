@@ -1,0 +1,15 @@
+body {
+  padding: 30px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+#leftBox {
+  
+}
+
+#rightBox {
+  display: block;
+}
