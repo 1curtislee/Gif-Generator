@@ -7,6 +7,9 @@ var topics = [
   "drums",
   "beats",
   "sing",
+  "trumpet",
+  "trombone",
+
 ]
 
 function setup() {
